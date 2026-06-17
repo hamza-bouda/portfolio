@@ -1,10 +1,8 @@
 // ===== Typewriter Effect =====
 const typewriterTexts = [
-    "Ingénieur IA & Data Science",
-    "Data Analyst / Data Engineer",
-    "Machine Learning & Deep Learning",
-    "Computer Vision & NLP",
-    "Full Stack Data Solutions"
+    "Data Science & Intelligence Artificielle",
+    "Machine Learning & Computer Vision",
+    "Data Engineering & Analytics"
 ];
 
 let textIndex = 0;
