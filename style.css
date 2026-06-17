@@ -1355,6 +1355,43 @@ img {
     height: 20px;
 }
 
+.nav-link:hover {
+    color: var(--accent-light);
+}
+
+.nav-link.active {
+    color: var(--accent);
+}
+
+.lang-toggle {
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 12px;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-family: var(--font-mono);
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.lang-toggle:hover {
+    border-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.lang-toggle span.active {
+    color: var(--accent-light);
+    font-weight: 600;
+}
+
+.lang-separator {
+    opacity: 0.5;
+}
+
 /* ===== Animations ===== */
 .animate-on-scroll {
     opacity: 0;

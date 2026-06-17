@@ -323,3 +323,54 @@ window.addEventListener('load', () => {
         }, 200 + index * 150);
     });
 });
+
+// ===== Language Toggle =====
+const langToggle = document.getElementById('langToggle');
+const langFr = document.querySelector('.lang-fr');
+const langEn = document.querySelector('.lang-en');
+
+let currentLang = localStorage.getItem('portfolio_lang') || 'fr';
+
+function setLanguage(lang) {
+    if (!window.translations) return;
+    
+    currentLang = lang;
+    localStorage.setItem('portfolio_lang', lang);
+    document.documentElement.lang = lang;
+    
+    // Update button UI
+    if (lang === 'fr') {
+        langFr.classList.add('active');
+        langEn.classList.remove('active');
+    } else {
+        langEn.classList.add('active');
+        langFr.classList.remove('active');
+    }
+    
+    // Translate texts
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (window.translations[key] && window.translations[key][lang]) {
+            // Check if element has child HTML (like <span> inside <p> or <strong>)
+            // The injection script was careful to wrap text nodes, but some might be raw
+            if (el.innerHTML.includes('<') && !el.innerHTML.includes('</svg>')) {
+                // To safely handle cases like <strong> we might need innerHTML, but for now we trust innerHTML
+                el.innerHTML = window.translations[key][lang];
+            } else {
+                el.innerHTML = window.translations[key][lang];
+            }
+        }
+    });
+}
+
+// Initialize
+if (currentLang === 'en') {
+    setLanguage('en');
+}
+
+// Toggle on click
+langToggle.addEventListener('click', () => {
+    const newLang = currentLang === 'fr' ? 'en' : 'fr';
+    setLanguage(newLang);
+});
+
