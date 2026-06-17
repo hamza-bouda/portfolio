@@ -12,13 +12,13 @@ const translations = {
     "hero-greeting": { fr: "Bonjour, je suis", en: "Hello, I am" },
     "hero-title": { fr: "Ingénieur Data Science & IA", en: "Data Science & AI Engineer" },
     "hero-desc": { 
-        fr: "Ingénieur en <span class=\"highlight\">Data Science & IA</span> avec une double formation franco-marocaine.\n                    Je conçois des solutions de <span class=\"highlight\">Machine Learning</span> et de \n                    <span class=\"highlight\">Computer Vision</span> appliquées à des problématiques métier concrètes — \n                    de la collecte de données au déploiement en production.", 
-        en: "Data Science & AI Engineer with a dual French-Moroccan background.\n                    I design <span class=\"highlight\">Machine Learning</span> and \n                    <span class=\"highlight\">Computer Vision</span> solutions applied to real-world business problems — \n                    from data collection to production deployment." 
+        fr: "Ingénieur en <span class=\"highlight\">Data Science & IA</span> avec un double diplôme en ingénierie.\n                    Je conçois des solutions de <span class=\"highlight\">Machine Learning</span> et de \n                    <span class=\"highlight\">Computer Vision</span> appliquées à des problématiques métier concrètes — \n                    de la collecte de données au déploiement en production.", 
+        en: "Data Science & AI Engineer with a dual engineering degree.\n                    I design <span class=\"highlight\">Machine Learning</span> and \n                    <span class=\"highlight\">Computer Vision</span> solutions applied to real-world business problems — \n                    from data collection to production deployment." 
     },
     "hero-btn-projects": { fr: "Voir mes projets", en: "View my projects" },
     "hero-btn-contact": { fr: "Me contacter", en: "Contact me" },
     "hero-btn-cv": { fr: "Télécharger mon CV", en: "Download my Resume" },
-    "hero-availability": { fr: "Disponible pour un stage / alternance", en: "Available for internship / work-study" },
+    "hero-availability": { fr: "En quête de nouveaux défis — Alternance dès Septembre", en: "Seeking new challenges — Work-study starting in September" },
 
     // Section Titles
     "sec-about": { fr: "À propos de moi", en: "About Me" },
@@ -92,7 +92,7 @@ const translations = {
 
     // Contact
     "contact-heading": { fr: "Travaillons ensemble !", en: "Let's work together!" },
-    "contact-text": { fr: "Je suis actuellement disponible pour un stage de 4 à 6 mois orienté Data Science, Data Engineering ou IA, avec possibilité d'évolution vers une alternance. N'hésitez pas à me contacter !", en: "I am currently available for a 4 to 6-month internship in Data Science, Data Engineering, or AI, with the possibility of transitioning to a work-study program. Feel free to contact me!" },
+    "contact-text": { fr: "Je suis à la recherche d'une alternance à partir de Septembre, orientée Data Science, Data Engineering ou IA. N'hésitez pas à me contacter !", en: "I am looking for a work-study program starting in September, focusing on Data Science, Data Engineering, or AI. Feel free to contact me!" },
     "contact-btn": { fr: "Envoyer un message", en: "Send a message" },
     
     // Footer
