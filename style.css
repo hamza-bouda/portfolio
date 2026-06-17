@@ -243,77 +243,81 @@ img {
     position: relative;
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-    color: #4ade80;
-    padding: 8px 20px;
-    border-radius: 30px;
-    margin-bottom: 24px;
-    overflow: hidden;
-    z-index: 1;
-    border: 1px solid rgba(74, 222, 128, 0.15);
-    box-shadow: 0 0 15px rgba(74, 222, 128, 0.05);
-    transition: all 0.3s ease;
-    cursor: default;
-    background: rgba(74, 222, 128, 0.03);
+    padding: 12px 24px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
+    border: 1px solid rgba(139, 92, 246, 0.2);
     backdrop-filter: blur(10px);
-}
-
-.availability-badge::before {
-    content: '';
-    position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: conic-gradient(
-        from 0deg,
-        transparent 0%,
-        rgba(74, 222, 128, 0.1) 25%,
-        rgba(74, 222, 128, 0.5) 50%,
-        rgba(74, 222, 128, 0.1) 75%,
-        transparent 100%
-    );
-    animation: rotate-border 4s linear infinite;
-    z-index: -2;
-}
-
-.availability-badge::after {
-    content: '';
-    position: absolute;
-    inset: 1px;
-    border-radius: 30px;
-    background: var(--bg-primary);
-    z-index: -1;
-    transition: background 0.3s ease;
+    font-family: var(--font-mono);
+    color: #e2e8f0;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    overflow: hidden;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: default;
 }
 
 .availability-badge:hover {
-    box-shadow: 0 0 25px rgba(74, 222, 128, 0.2);
-    transform: translateY(-2px);
-    border-color: rgba(74, 222, 128, 0.3);
+    transform: translateY(-5px) scale(1.02);
+    border-color: rgba(139, 92, 246, 0.6);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.2);
 }
 
-.availability-badge:hover .availability-dot {
-    box-shadow: 0 0 12px #4ade80, 0 0 20px #4ade80;
+/* Scanning laser effect */
+.availability-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.4), transparent);
+    transform: skewX(-20deg);
+    animation: cyber-scan 3s infinite;
 }
 
-@keyframes rotate-border {
-    100% { transform: rotate(360deg); }
+@keyframes cyber-scan {
+    0% { left: -100%; }
+    50%, 100% { left: 200%; }
 }
 
+/* Dot becomes a tech diamond node */
 .availability-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #4ade80;
-    box-shadow: 0 0 6px #4ade80;
-    animation: pulse-green 2s ease-in-out infinite;
-    transition: all 0.3s ease;
+    width: 10px;
+    height: 10px;
+    background: #8b5cf6;
+    margin-right: 12px;
+    position: relative;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    animation: node-pulse 2s infinite alternate;
 }
 
-@keyframes pulse-green {
-    0%, 100% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.2); opacity: 0.7; }
+/* Glowing shadow around the node */
+.availability-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.8) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    animation: node-glow 2s infinite alternate;
+}
+
+@keyframes node-pulse {
+    0% { opacity: 0.5; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+@keyframes node-glow {
+    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+    100% { opacity: 1; transform: translate(-50%, -50%) scale(1.5); }
 }
 
 .greeting-line {
