@@ -57,6 +57,10 @@ img {
     max-width: 100%;
     display: block;
 }
+/* ===== Skip Link ===== */
+.skip-link:focus {
+    top: 0 !important;
+}
 
 /* ===== Cursor Glow ===== */
 .cursor-glow {
@@ -1226,6 +1230,12 @@ img {
 
 .dot-empty {
     background: rgba(255, 255, 255, 0.1);
+}
+
+.interest-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    background: rgba(99, 102, 241, 0.05) !important;
 }
 
 /* ===== Contact Section ===== */
