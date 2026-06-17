@@ -312,6 +312,27 @@ img {
     font-size: 1.05rem;
 }
 
+.btn-outline {
+    background: transparent;
+    color: var(--text-primary);
+    border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent-light);
+    background: rgba(99, 102, 241, 0.08);
+    transform: translateY(-2px);
+}
+
+/* Contact CTA buttons */
+.contact-cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 /* Hero Socials */
 .hero-socials {
     display: flex;
