@@ -39,18 +39,21 @@ typewrite();
 
 // ===== Navbar Scroll Effect =====
 const navbar = document.getElementById('navbar');
-let lastScroll = 0;
+let isNavScrolling = false;
 
 window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 50) {
-        navbar.classList.add('scrolled');
-    } else {
-        navbar.classList.remove('scrolled');
+    if (!isNavScrolling) {
+        window.requestAnimationFrame(() => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            isNavScrolling = false;
+        });
+        isNavScrolling = true;
     }
-    
-    lastScroll = currentScroll;
 });
 
 // ===== Mobile Navigation =====
@@ -117,7 +120,16 @@ function updateActiveNav() {
     });
 }
 
-window.addEventListener('scroll', updateActiveNav);
+let isNavUpdating = false;
+window.addEventListener('scroll', () => {
+    if (!isNavUpdating) {
+        window.requestAnimationFrame(() => {
+            updateActiveNav();
+            isNavUpdating = false;
+        });
+        isNavUpdating = true;
+    }
+});
 
 // ===== Scroll Animations =====
 const observerOptions = {
@@ -185,8 +197,7 @@ if (statsSection) {
 const cursorGlow = document.getElementById('cursorGlow');
 
 document.addEventListener('mousemove', (e) => {
-    cursorGlow.style.left = e.clientX + 'px';
-    cursorGlow.style.top = e.clientY + 'px';
+    cursorGlow.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate(-50%, -50%)`;
     cursorGlow.style.opacity = '1';
 });
 
@@ -263,7 +274,12 @@ function connectParticles() {
     }
 }
 
+let animationFrameId;
+let isCanvasVisible = true;
+
 function animateParticles() {
+    if (!isCanvasVisible) return;
+    
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
     particles.forEach(particle => {
@@ -272,10 +288,28 @@ function animateParticles() {
     });
     
     connectParticles();
-    requestAnimationFrame(animateParticles);
+    animationFrameId = requestAnimationFrame(animateParticles);
 }
 
-animateParticles();
+// Optimization: Pause canvas when hero section is not visible
+const heroSection = document.getElementById('home');
+const canvasObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            isCanvasVisible = true;
+            animateParticles();
+        } else {
+            isCanvasVisible = false;
+            cancelAnimationFrame(animationFrameId);
+        }
+    });
+}, { threshold: 0 });
+
+if (heroSection) {
+    canvasObserver.observe(heroSection);
+} else {
+    animateParticles();
+}
 
 // ===== Smooth Scroll for older browsers =====
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -348,19 +382,18 @@ function setLanguage(lang) {
     }
     
     // Translate texts
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (window.translations[key] && window.translations[key][lang]) {
-            // Check if element has child HTML (like <span> inside <p> or <strong>)
-            // The injection script was careful to wrap text nodes, but some might be raw
-            if (el.innerHTML.includes('<') && !el.innerHTML.includes('</svg>')) {
-                // To safely handle cases like <strong> we might need innerHTML, but for now we trust innerHTML
-                el.innerHTML = window.translations[key][lang];
-            } else {
+    const translatableElements = document.querySelectorAll('[data-i18n]');
+    translatableElements.forEach(el => el.classList.add('fading'));
+
+    setTimeout(() => {
+        translatableElements.forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (window.translations[key] && window.translations[key][lang]) {
                 el.innerHTML = window.translations[key][lang];
             }
-        }
-    });
+            el.classList.remove('fading');
+        });
+    }, 300);
 }
 
 // Initialize

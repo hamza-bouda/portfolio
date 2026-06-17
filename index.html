@@ -26,7 +26,22 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Person",
+      "name": "Hamza BOUDA",
+      "jobTitle": "Data Science & AI Engineer",
+      "url": "https://hamza-bouda.github.io/portfolio/",
+      "sameAs": [
+        "https://www.linkedin.com/in/hamza-bouda-8b548b251/",
+        "https://github.com/hamza-bouda"
+      ],
+      "knowsAbout": ["Artificial Intelligence", "Machine Learning", "Data Science", "Computer Vision", "NLP", "Data Engineering"]
+    }
+    </script>
 </head>
 <body class="dark-mode">
     <a href="#about" class="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--accent); color: white; padding: 8px; z-index: 1000; transition: top 0.3s; text-decoration: none;">Aller au contenu principal</a>
@@ -50,6 +65,12 @@
                 <li><a href="#certifications" class="nav-link" data-i18n="nav-certifications">Certifications</a></li>
                 <li><a href="#education" class="nav-link" data-i18n="nav-education">Formation</a></li>
                 <li><a href="#contact" class="nav-link" data-i18n="nav-contact">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" style="display: none;"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    </button>
+                </li>
                 <li>
                     <button class="lang-toggle" id="langToggle">
                         <span class="lang-fr active">FR</span><span class="lang-separator">/</span><span class="lang-en">EN</span>
@@ -346,7 +367,7 @@
                 <!-- Featured Projects -->
                 <div class="project-card featured animate-on-scroll">
                     <div class="project-image">
-                        <img src="assets/projects/smartroute.png" alt="Interface de SmartRoute+" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/projects/smartroute.webp" alt="Interface de SmartRoute+" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-info">
                         <span class="project-label" data-i18n="proj-featured">Featured</span>
@@ -374,7 +395,7 @@
 
                 <div class="project-card featured animate-on-scroll">
                     <div class="project-image">
-                        <img src="assets/projects/aiafs.png" alt="Dashboard de prédiction AIAFS" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/projects/aiafs.webp" alt="Dashboard de prédiction AIAFS" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-info">
                         <span class="project-label">Featured – In Progress</span>
@@ -396,7 +417,7 @@
 
                 <div class="project-card featured animate-on-scroll">
                     <div class="project-image">
-                        <img src="assets/projects/timeseries.png" alt="Dashboard financier TimeSeries" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="assets/projects/timeseries.webp" alt="Dashboard financier TimeSeries" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                     </div>
                     <div class="project-info">
                         <span class="project-label" data-i18n="proj-featured">Featured</span>
