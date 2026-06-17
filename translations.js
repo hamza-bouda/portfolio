@@ -12,13 +12,13 @@ const translations = {
     "hero-greeting": { fr: "Bonjour, je suis", en: "Hello, I am" },
     "hero-title": { fr: "Ingénieur Data Science & IA", en: "Data Science & AI Engineer" },
     "hero-desc": { 
-        fr: "Passionné par la transformation des données en solutions intelligentes. Avec 2 ans d'expérience académique et professionnelle en projets IA, je suis actuellement à la recherche d'un stage de fin d'études (4-6 mois) pour concevoir des modèles prédictifs performants.", 
-        en: "Passionate about transforming data into intelligent solutions. With 2 years of academic and professional experience in AI projects, I am currently looking for an end-of-studies internship (4-6 months) to design high-performance predictive models." 
+        fr: "Ingénieur en <span class=\"highlight\">Data Science & IA</span> avec une double formation franco-marocaine.\n                    Je conçois des solutions de <span class=\"highlight\">Machine Learning</span> et de \n                    <span class=\"highlight\">Computer Vision</span> appliquées à des problématiques métier concrètes — \n                    de la collecte de données au déploiement en production.", 
+        en: "Data Science & AI Engineer with a dual French-Moroccan background.\n                    I design <span class=\"highlight\">Machine Learning</span> and \n                    <span class=\"highlight\">Computer Vision</span> solutions applied to real-world business problems — \n                    from data collection to production deployment." 
     },
     "hero-btn-projects": { fr: "Voir mes projets", en: "View my projects" },
     "hero-btn-contact": { fr: "Me contacter", en: "Contact me" },
     "hero-btn-cv": { fr: "Télécharger mon CV", en: "Download my Resume" },
-    "hero-availability": { fr: "🟢 Disponible immédiatement", en: "🟢 Available immediately" },
+    "hero-availability": { fr: "Disponible pour un stage / alternance", en: "Available for internship / work-study" },
 
     // Section Titles
     "sec-about": { fr: "À propos de moi", en: "About Me" },
