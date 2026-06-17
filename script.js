@@ -154,24 +154,7 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
-// ===== Skill Bars Animation =====
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const progressBars = entry.target.querySelectorAll('.skill-progress');
-            progressBars.forEach((bar, index) => {
-                setTimeout(() => {
-                    bar.style.width = bar.getAttribute('data-width') + '%';
-                }, index * 150);
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.3 });
 
-document.querySelectorAll('.skill-bars').forEach(el => {
-    skillObserver.observe(el);
-});
 
 // ===== Cursor Glow Effect =====
 const cursorGlow = document.getElementById('cursorGlow');
