@@ -73,6 +73,31 @@ document.querySelectorAll('.nav-link').forEach(link => {
 // ===== Active Navigation Link =====
 const sections = document.querySelectorAll('section[id]');
 
+// ===== Smooth Scroll with Navbar Offset =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            // Close mobile menu if open
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+            
+            // Calculate offset (navbar height + extra padding)
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
 function updateActiveNav() {
     const scrollY = window.pageYOffset + 150;
     
